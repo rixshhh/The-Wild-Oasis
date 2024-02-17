@@ -5,6 +5,9 @@ import { deleteCabin } from "../../services/apiCabins";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import CreateCabinForm from "./CreateCabinForm";
+import { MdDelete } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
+import ButtonIcon from "../../ui/ButtonIcon";
 
 const TableRow = styled.div`
   display: grid;
@@ -78,9 +81,9 @@ function CabinRow({cabin}){
         <Price>{formatCurrency(regularPrice)}</Price>
         <Discount>{formatCurrency(discount)}</Discount>
         <div>
-          <button onClick={() => setShowform((show) => !show)}>Edit</button>
-        <button onClick={()=> mutate(cabinId)}
-        disabled={isDeleting}>Delete</button>
+          <ButtonIcon onClick={() => setShowform((show) => !show)}><FaEdit /></ButtonIcon>
+        <ButtonIcon onClick={()=> mutate(cabinId)}
+        disabled={isDeleting}><MdDelete /></ButtonIcon>
 
         </div>
         
